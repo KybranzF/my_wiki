@@ -26,6 +26,9 @@
 
 	~/git/GitTools/Finder/gitfinder.py -i ~/bounty/<company>/subdomainsublister.txt -o ~/bounty/<company>/gitfinder.txt
 
+## find valuable files which are usable
+find / -perm -u=s -type f 2>/dev/null
+
 ## fancy awk
 ### field
 	cat file.csv | awk -F'"' '{print $4}' > awk.txt
@@ -137,6 +140,11 @@
 ## create tmpfs
 	`mkdir /tmp/afl-ramdisk && chmod 777 /tmp/afl-ramdisk`
 	`sudo mount -t tmpfs -o size=512M tmpfs /tmp/afl-ramdisk`
+
+## su: must be run from a terminal
+
+	echo "import pty; pty.spawn('/bin/bash')" > /tmp/asdf.py
+	python /tmp/asdf.py
 
 ## hashcat 
 ### Kerberoasting using gpu
